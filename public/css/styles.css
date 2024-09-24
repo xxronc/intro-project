@@ -1,0 +1,100 @@
+/* Reset some default browser styles */
+body, ul {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif; /* Set Open Sans as the default font */
+  font-size: 18px; /* Larger font size for better accessibility */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body covers the entire viewport height */
+}
+
+/* Basic styling for the content */
+#content {
+  flex: 1; /* Grow to fill available space */
+  padding: 20px;
+}
+
+/* Basic styling for the footer */
+footer {
+  background-color: #2e1d67; /* Use brand color #2e1d67 for the footer background */
+  color: #fff;
+  text-align: center;
+  padding: 10px 0; /* Removed left padding */
+  padding-left: 0; /* Set left padding to zero */
+  padding-right: 0; /* Set right padding to zero */
+  position: fixed;
+  bottom: 0;
+  left: 0; /* Set left to zero to ensure footer is flush against the left edge */
+  width: 100%;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Style the form */
+form {
+  width: 500px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+/* Styling for form elements */
+input[type="text"],
+input[type="email"],
+button, textarea {
+  padding: 12px; /* Increased padding for better clickability */
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px; /* Larger font size for better accessibility */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 95%;
+}
+
+button {
+  background-color: #006ab4; /* Use brand color #006ab4 for buttons */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #38d430; /* Use brand color #38d430 for button hover */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Target only the <th> elements in the second row and remove border */
+tr:nth-of-type(2) th {
+  border-bottom: none;
+}
+
+th, td {
+  padding: 12px; /* Increased padding for better readability */
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
