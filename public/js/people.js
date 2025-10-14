@@ -62,7 +62,7 @@ function addpersoninput() {
   clearform( "personform" )
   showform( "personform", async () => {
 
-    await addperson( getformfieldvalue( "personform-name" ), 
+    await addperson(  getformfieldvalue( "personform-name" ), 
                       getformfieldvalue( "personform-email" ), 
                       getformfieldvalue( "personform-notes" ) )
     await gopeople()
@@ -77,10 +77,21 @@ function editperson( ev ) {
   clearform( "personform" )
   const personrow = findancestorbytype( ev.target, "tr" )
   setformfieldvalue( "personform-name", personrow.person.name )
+  setformfieldvalue( "personform-email", personrow.person.email )
+  setformfieldvalue( "personform-notes", personrow.person.notes )
+  
+  showform( "personform", async () => {
 
-  showform( "personform", () => console.log("submitted peopleform") )
-
-}
+    await updateperson(
+                      personrow.person.id,
+                      getformfieldvalue( "personform-name" ),
+                      getformfieldvalue( "personform-email" ),
+                      getformfieldvalue( "personform-notes" ) )
+    await gopeople()
+    
+    console.log("submitted peopleform")
+  } )
+  }
 
 /**
  * 
