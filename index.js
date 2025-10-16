@@ -74,8 +74,7 @@ const server = http.createServer( async ( req, res ) => {
   } )
 })
 
-// Remember to change back when submitting
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
 server.listen( port, () => {
   console.log(`Server is running on port ${port}`)
 } )

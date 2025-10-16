@@ -1,6 +1,6 @@
 
 
-import { getdata, putdata } from "./api.js"
+import { deletedata, getdata, putdata } from "./api.js"
 import { showform, getformfieldvalue, setformfieldvalue, clearform, gettablebody, cleartablerows } from "./form.js"
 import { findancestorbytype } from "./dom.js"
 
@@ -93,6 +93,19 @@ function editperson( ev ) {
   } )
   }
 
+  async function removeperson( ev ) {
+
+    clearform( "personform" )
+    const personrow = findancestorbytype( ev.target, "tr" )
+
+    if ( !personrow || !personrow.person ) return
+
+    if ( !confirm( `Delete ${personrow.person.name}?` ) ) return
+
+    await deletedata( "people", { id: personrow.person.id } )
+    await gopeople()
+  }
+
 /**
  * 
  * @param { object } person
@@ -115,5 +128,11 @@ export function addpersondom( person ) {
   editbutton.textContent = "Edit"
   editbutton.addEventListener( "click", editperson )
 
+  // Delete button
+  const deletebutton = document.createElement( "button" )
+  deletebutton.textContent = "Delete"
+  deletebutton.addEventListener( "click", removeperson )
+
   cells[ 8 ].appendChild( editbutton )
+  cells[ 8 ].appendChild( deletebutton )
 }
