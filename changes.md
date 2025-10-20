@@ -23,3 +23,4 @@
     - Added new toggleschedule (js/people.js) function allowing users to toggle which ever days the person is available
     - Added for loop (js/people.js - line 155) to populate each cell with a name, label and event listener.
     - Added extra styling for cells and feedback when toggling
+---
