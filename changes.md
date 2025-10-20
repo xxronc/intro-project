@@ -24,3 +24,17 @@
     - Added for loop (js/people.js - line 155) to populate each cell with a name, label and event listener.
     - Added extra styling for cells and feedback when toggling
 ---
+## Adding a Database
+### What I Changed
+1. Added database
+
+### Why I Changed It
+1. Data was volatile. Now data will be stored locally and will not be deleted node.js is restarted
+
+### How Changed It
+1. 
+    - Added db.js which utilises SQL to store each record in data.db
+    - Ensures all people are stored with their relevant data
+    - Edited get (lib/people.js) function, displaying all person records directly from the database - ordered by name
+    - Add and Remove (lib/people.js) also operate directly from the database using SQL
+    - Added visual changes for improved readability 
