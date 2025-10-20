@@ -88,14 +88,17 @@ tr:nth-of-type(2) th {
   border-bottom: none;
 }
 
-th, td {
+th {
   padding: 12px; /* Increased padding for better readability */
   text-align: left;
   border-bottom: 1px solid #ddd;
+  background-color: #f2f2f2;
 }
 
-th {
-  background-color: #f2f2f2;
+td {
+  padding-left: 5px; /* Increased padding for better readability */
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
 td.scheduled {
@@ -109,7 +112,7 @@ td.scheduled {
   font-weight: 700;
   text-align: center;
   color: #333;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   text-transform: uppercase;
 }
 
