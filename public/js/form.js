@@ -50,7 +50,7 @@ export function showform( formid, onsubmit ) {
   document.getElementById( "content" ).style.display = "none"
 
   const form = document.getElementById( formid )
-  form.style.display = "block"
+  form.style.display = "flex"
 
   formsubmitcallback = onsubmit
 }

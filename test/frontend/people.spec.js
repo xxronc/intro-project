@@ -38,7 +38,7 @@ describe( "people UI helpers", () => {
 
     const row = document.querySelector( "#peopletable tbody tr" )
     expect( row ).to.exist
-    expect( row.cells[ 0 ].textContent ).to.equal( "Tester" )
+    expect( row.querySelector( ".person-name" ).textContent ).to.equal( "Tester" )
     const scheduledCells = row.querySelectorAll( "td.scheduled" )
     expect( scheduledCells.length ).to.equal( 1 )
     expect( scheduledCells[ 0 ].querySelector( ".day-label" ).textContent ).to.equal( "Mon" )

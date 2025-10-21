@@ -4,15 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script type="module" src="js/start.js"></script>
 </head>
 <body>
 
-    <div id="content">
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark">TH</span>
+        <div class="brand-text">
+          <span class="brand-name">TalkingHealth</span>
+          <span class="brand-tagline">Coordination Hub</span>
+        </div>
+      </div>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="nav-link active" href="#">Book a Therapist</a>
+        <a class="nav-link" href="#">Book a Room</a>
+        <a class="nav-link" href="#">Events</a>
+        <a class="nav-link" href="#">About</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button">Message Us</button>
+        <button class="btn btn-primary" type="button">Sign In</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="content">
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>Book people, and view landlords & buildings with ease.</h1>
+        <p>Manage schedules, keep track of rooms, and bring everyone together in one beautiful workspace inspired by TalkingHealth's very own website.</p>
+      </div>
+      <div class="hero-card" aria-hidden="true">
+        <span class="hero-badge">Scheduling overview</span>
+        <ul class="hero-list">
+          <li><span class="dot dot-people"></span>People availability</li>
+          <li><span class="dot dot-landlords"></span>Landlord directory</li>
+          <li><span class="dot dot-buildings"></span>Building & room assignments</li>
+        </ul>
+      </div>
+    </section>
     <main>
-      <h1>Welcome</h1>
 
       <div class="tabs" role="tablist">
         <button class="tab-button active" data-tab="people-tab" role="tab" aria-selected="true">People</button>
@@ -22,10 +57,25 @@
 
       <section id="people-tab" class="tab-panel active" role="tabpanel">
         <header class="panel-header">
-          <h2>People</h2>
-          <button id="addperson" type="button">Add Person</button>
+          <div>
+            <h2>People</h2>
+            <p class="panel-subtitle">See who is available and toggle their weekly schedule.</p>
+          </div>
+          <button id="addperson" type="button" class="btn btn-primary">Add Person</button>
         </header>
-        <table id="peopletable">
+
+        <div class="tab-toolbar" aria-label="People filters">
+          <div class="search-field">
+            <input type="search" id="people-search" placeholder="Search person by name" aria-label="Search person by name" />
+          </div>
+          <div class="toolbar-buttons">
+            <button type="button" class="pill active">All</button>
+            <button type="button" class="pill">Available today</button>
+            <button type="button" class="pill">Recently added</button>
+          </div>
+        </div>
+
+        <table id="peopletable" class="people-table data-table" aria-label="People schedule">
           <thead>
             <tr>
               <th>Name</th>
@@ -51,10 +101,13 @@
 
       <section id="landlords-tab" class="tab-panel" role="tabpanel" aria-hidden="true">
         <header class="panel-header">
-          <h2>Landlords</h2>
-          <button id="add-landlord" type="button">Add Landlord</button>
+          <div>
+            <h2>Landlords</h2>
+            <p class="panel-subtitle">Maintain contact details and keep building counts in view.</p>
+          </div>
+          <button id="add-landlord" type="button" class="btn btn-primary">Add Landlord</button>
         </header>
-        <table id="landlordstable">
+        <table id="landlordstable" class="data-table" aria-label="Landlords">
           <thead>
             <tr>
               <th>Name</th>
@@ -71,10 +124,13 @@
 
       <section id="buildings-tab" class="tab-panel" role="tabpanel" aria-hidden="true">
         <header class="panel-header">
-          <h2>Buildings</h2>
-          <button id="add-building" type="button">Add Building</button>
+          <div>
+            <h2>Buildings</h2>
+            <p class="panel-subtitle">See which landlord owns each building and manage rooms.</p>
+          </div>
+          <button id="add-building" type="button" class="btn btn-primary">Add Building</button>
         </header>
-        <table id="buildingstable">
+        <table id="buildingstable" class="data-table" aria-label="Buildings">
           <thead>
             <tr>
               <th>Name</th>
@@ -89,7 +145,7 @@
           <tbody></tbody>
         </table>
       </section>
-    </main>
+  </main>
 
 <!--        <footer>
             <p>&copy; 2024 babblevoice. All rights reserved.</p>
@@ -112,8 +168,10 @@
               <label for="personform-notes">Notes</label>
               <textarea id="personform-notes" rows="4"></textarea>
             </div>
-            <button type="submit">Save</button>
-            <button class="close" type="button">Close</button>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save</button>
+              <button class="close btn btn-ghost" type="button">Cancel</button>
+            </div>
           </form>
     </div>
 
@@ -136,8 +194,10 @@
         <label for="landlordform-notes">Notes</label>
         <textarea id="landlordform-notes" rows="4"></textarea>
       </div>
-      <button type="submit">Save</button>
-      <button class="close" type="button">Close</button>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="close btn btn-ghost" type="button">Cancel</button>
+      </div>
     </form>
   </div>
 
@@ -164,8 +224,10 @@
         <label for="buildingform-notes">Notes</label>
         <textarea id="buildingform-notes" rows="4"></textarea>
       </div>
-      <button type="submit">Save</button>
-      <button class="close" type="button">Close</button>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="close btn btn-ghost" type="button">Cancel</button>
+      </div>
     </form>
   </div>
 
@@ -189,8 +251,10 @@
         <label for="roomform-notes">Notes</label>
         <textarea id="roomform-notes" rows="4"></textarea>
       </div>
-      <button type="submit">Save</button>
-      <button class="close" type="button">Close</button>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="close btn btn-ghost" type="button">Cancel</button>
+      </div>
     </form>
   </div>
 
@@ -199,8 +263,8 @@
       <header class="panel-header">
         <h2 id="roomsdrawer-title">Rooms</h2>
         <div class="panel-actions">
-          <button id="add-room" type="button">Add Room</button>
-          <button class="close" type="button">Close</button>
+          <button id="add-room" type="button" class="btn btn-primary">Add Room</button>
+          <button class="close btn btn-ghost" type="button">Close</button>
         </div>
       </header>
       <table id="roomstable">
@@ -230,8 +294,10 @@
               <label for="workflowform-notes">Notes</label>
               <textarea id="workflowform-notes" rows="4"></textarea>
             </div>
-            <button type="submit">Save</button>
-            <button class="close" type="button">Close</button>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save</button>
+              <button class="close btn btn-ghost" type="button">Cancel</button>
+            </div>
           </form>
     </div>
 
@@ -250,8 +316,10 @@
                 <!-- Add more tasks as needed -->
             </div>
 
-            <button type="button">Add</button>
-            <button class="close" type="button">Close</button>
+            <div class="form-actions">
+              <button type="button" class="btn btn-primary">Add</button>
+              <button class="close btn btn-ghost" type="button">Cancel</button>
+            </div>
           </form>
     </div>
 </body>

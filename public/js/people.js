@@ -144,7 +144,43 @@ export function addpersondom( person ) {
 
   // @ts-ignore
   newrow.person = person
-  cells[ 0 ].textContent = person.name
+
+  const infocontainer = document.createElement( "div" )
+  infocontainer.className = "person-info"
+
+  const nameelement = document.createElement( "span" )
+  nameelement.className = "person-name"
+  nameelement.textContent = person.name
+  infocontainer.appendChild( nameelement )
+
+  const metacontainer = document.createElement( "div" )
+  metacontainer.className = "person-meta"
+
+  if ( person.email ) {
+    const emaillink = document.createElement( "a" )
+    emaillink.href = `mailto:${person.email}`
+    emaillink.textContent = person.email
+    emaillink.rel = "noopener"
+    metacontainer.appendChild( emaillink )
+  } else {
+    const noemail = document.createElement( "span" )
+    noemail.textContent = "No email provided"
+    metacontainer.appendChild( noemail )
+  }
+
+  const schedulehint = document.createElement( "span" )
+  schedulehint.textContent = "Tap days to toggle availability"
+  metacontainer.appendChild( schedulehint )
+
+  infocontainer.appendChild( metacontainer )
+
+  const noteselement = document.createElement( "p" )
+  noteselement.className = "person-notes"
+  noteselement.textContent = person.notes ? person.notes : "No notes added yet."
+  infocontainer.appendChild( noteselement )
+
+  cells[ 0 ].innerHTML = ""
+  cells[ 0 ].appendChild( infocontainer )
 
   // schedule stuff - ensure Monday-first ordering
   person.schedule = person.schedule || Array.from( { length: WEEK_DAYS }, () => false )
