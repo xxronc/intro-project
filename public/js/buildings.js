@@ -54,7 +54,7 @@ function showroomsdrawercontainer() {
   document.getElementById( "content" ).style.display = "none"
   const drawer = document.getElementById( "roomsdrawer" )
   if ( drawer ) {
-    drawer.style.display = "block"
+    drawer.style.display = "flex"
   }
 }
 
