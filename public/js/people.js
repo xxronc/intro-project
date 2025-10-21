@@ -144,7 +144,7 @@ export function addpersondom( person ) {
 
   // @ts-ignore
   newrow.person = person
-  cells[ 0 ].innerText = person.name
+  cells[ 0 ].textContent = person.name
 
   // schedule stuff - ensure Monday-first ordering
   person.schedule = person.schedule || Array.from( { length: WEEK_DAYS }, () => false )
