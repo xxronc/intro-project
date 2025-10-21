@@ -11,34 +11,85 @@
 <body>
 
     <div id="content">
-        <main>
-            <h1>Welcome</h1>
+    <main>
+      <h1>Welcome</h1>
 
-            <h2>People</h2>
-            <button id="addperson"">Add Person</button>
-            <table id="peopletable">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th colspan="7">Schedule</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr class="days">
-                        <th></th>
-                        <th class="day-1"></th>
-                        <th class="day-2"></th>
-                        <th class="day-3"></th>
-                        <th class="day-4"></th>
-                        <th class="day-5"></th>
-                        <th class="day-6"></th>
-                        <th class="day-7"></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </main>
+      <div class="tabs" role="tablist">
+        <button class="tab-button active" data-tab="people-tab" role="tab" aria-selected="true">People</button>
+        <button class="tab-button" data-tab="landlords-tab" role="tab" aria-selected="false">Landlords</button>
+        <button class="tab-button" data-tab="buildings-tab" role="tab" aria-selected="false">Buildings</button>
+      </div>
+
+      <section id="people-tab" class="tab-panel active" role="tabpanel">
+        <header class="panel-header">
+          <h2>People</h2>
+          <button id="addperson" type="button">Add Person</button>
+        </header>
+        <table id="peopletable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th colspan="7">Schedule</th>
+              <th>Action</th>
+            </tr>
+            <tr class="days">
+              <th></th>
+              <th class="day-1"></th>
+              <th class="day-2"></th>
+              <th class="day-3"></th>
+              <th class="day-4"></th>
+              <th class="day-5"></th>
+              <th class="day-6"></th>
+              <th class="day-7"></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="landlords-tab" class="tab-panel" role="tabpanel" aria-hidden="true">
+        <header class="panel-header">
+          <h2>Landlords</h2>
+          <button id="add-landlord" type="button">Add Landlord</button>
+        </header>
+        <table id="landlordstable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Notes</th>
+              <th>Buildings</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="buildings-tab" class="tab-panel" role="tabpanel" aria-hidden="true">
+        <header class="panel-header">
+          <h2>Buildings</h2>
+          <button id="add-building" type="button">Add Building</button>
+        </header>
+        <table id="buildingstable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Landlord</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Notes</th>
+              <th>Rooms</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
 
 <!--        <footer>
             <p>&copy; 2024 babblevoice. All rights reserved.</p>
@@ -65,6 +116,107 @@
             <button class="close" type="button">Close</button>
           </form>
     </div>
+
+  <div id="landlordform" class="container" style="display: none;">
+    <form>
+      <h2>Landlord</h2>
+      <div class="form-group">
+        <label for="landlordform-name">Name</label>
+        <input type="text" id="landlordform-name">
+      </div>
+      <div class="form-group">
+        <label for="landlordform-email">Email</label>
+        <input type="email" id="landlordform-email">
+      </div>
+      <div class="form-group">
+        <label for="landlordform-phone">Phone</label>
+        <input type="text" id="landlordform-phone">
+      </div>
+      <div class="form-group">
+        <label for="landlordform-notes">Notes</label>
+        <textarea id="landlordform-notes" rows="4"></textarea>
+      </div>
+      <button type="submit">Save</button>
+      <button class="close" type="button">Close</button>
+    </form>
+  </div>
+
+  <div id="buildingform" class="container" style="display: none;">
+    <form>
+      <h2>Building</h2>
+      <div class="form-group">
+        <label for="buildingform-name">Name</label>
+        <input type="text" id="buildingform-name">
+      </div>
+      <div class="form-group">
+        <label for="buildingform-landlord">Landlord</label>
+        <select id="buildingform-landlord"></select>
+      </div>
+      <div class="form-group">
+        <label for="buildingform-address">Address</label>
+        <input type="text" id="buildingform-address">
+      </div>
+      <div class="form-group">
+        <label for="buildingform-city">City</label>
+        <input type="text" id="buildingform-city">
+      </div>
+      <div class="form-group">
+        <label for="buildingform-notes">Notes</label>
+        <textarea id="buildingform-notes" rows="4"></textarea>
+      </div>
+      <button type="submit">Save</button>
+      <button class="close" type="button">Close</button>
+    </form>
+  </div>
+
+  <div id="roomform" class="container" style="display: none;">
+    <form>
+      <h2>Room</h2>
+      <input type="hidden" id="roomform-building">
+      <div class="form-group">
+        <label for="roomform-name">Name</label>
+        <input type="text" id="roomform-name">
+      </div>
+      <div class="form-group">
+        <label for="roomform-floor">Floor</label>
+        <input type="text" id="roomform-floor">
+      </div>
+      <div class="form-group">
+        <label for="roomform-capacity">Capacity</label>
+        <input type="number" id="roomform-capacity" min="0">
+      </div>
+      <div class="form-group">
+        <label for="roomform-notes">Notes</label>
+        <textarea id="roomform-notes" rows="4"></textarea>
+      </div>
+      <button type="submit">Save</button>
+      <button class="close" type="button">Close</button>
+    </form>
+  </div>
+
+  <div id="roomsdrawer" class="container" style="display: none;">
+    <section class="rooms-panel">
+      <header class="panel-header">
+        <h2 id="roomsdrawer-title">Rooms</h2>
+        <div class="panel-actions">
+          <button id="add-room" type="button">Add Room</button>
+          <button class="close" type="button">Close</button>
+        </div>
+      </header>
+      <table id="roomstable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Floor</th>
+            <th>Capacity</th>
+            <th>Notes</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
 
 
     <div id="workflowform" class="container" style="display: none;">

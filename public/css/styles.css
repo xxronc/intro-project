@@ -15,6 +15,49 @@ body, ul {
   padding: 20px;
 }
 
+.tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.tab-button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tab-button.active,
+.tab-button:hover {
+  background-color: #006ab4;
+  color: #fff;
+  border-color: #006ab4;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.panel-header h2 {
+  margin: 0;
+}
+
 /* Basic styling for the footer */
 footer {
   background-color: #2e1d67; /* Use brand color #2e1d67 for the footer background */
@@ -53,6 +96,7 @@ label {
 /* Styling for form elements */
 input[type="text"],
 input[type="email"],
+select,
 button, textarea {
   padding: 12px; /* Increased padding for better clickability */
   margin-bottom: 10px;
@@ -63,6 +107,7 @@ button, textarea {
 
 input[type="text"],
 input[type="email"],
+select,
 textarea {
   width: 95%;
 }
@@ -78,9 +123,23 @@ button:hover {
   background-color: #38d430; /* Use brand color #38d430 for button hover */
 }
 
+button.tab-button {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+button.tab-button.active,
+button.tab-button:hover {
+  background-color: #006ab4;
+  color: #fff;
+  border-color: #006ab4;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 16px;
 }
 
 /* Target only the <th> elements in the second row and remove border */
@@ -89,20 +148,46 @@ tr:nth-of-type(2) th {
 }
 
 th {
-  padding: 12px; /* Increased padding for better readability */
+  padding: 10px 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
   background-color: #f2f2f2;
 }
 
 td {
-  padding-left: 5px; /* Increased padding for better readability */
+  padding: 10px 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
 
+#peopletable th,
+#peopletable td {
+  padding: 8px;
+  font-size: 15px;
+}
+
+#landlordstable th,
+#landlordstable td,
+#buildingstable th,
+#buildingstable td {
+  padding: 10px 14px;
+}
+
+#roomstable th,
+#roomstable td {
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
 td.scheduled {
   background-color: #7ccf8a; /* green block like screenshot */
+}
+
+#peopletable td.schedule-cell {
+  width: 48px;
+  max-width: 48px;
+  padding: 6px 8px;
+  text-align: center;
 }
 
 /* Small day abbreviation inside each schedule cell */
@@ -119,4 +204,26 @@ td.scheduled {
 /* Ensure label is readable when the cell is highlighted */
 td.scheduled .day-label {
   color: #fff;
+}
+
+td > button + button {
+  margin-left: 6px;
+}
+
+.rooms-panel {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  min-width: 480px;
+  max-width: 720px;
+}
+
+.rooms-panel .panel-header {
+  margin-bottom: 16px;
+}
+
+.rooms-panel .panel-actions {
+  display: flex;
+  gap: 8px;
 }
