@@ -88,3 +88,20 @@
     - Added rooms.spec.js to verify rooms CRUD capacity parsing, filtering by building, and deletion
     - Added people.spec.js (backend) to validate people creation, update (including schedule array), retrieval, and removal
     - Added landlords.spec.js to check landlord CRUD, building count per landlord, and deletion
+
+---
+## Visual Overhaul
+### What I Changed
+1. Introduced a new header, hero and tab layout inspired by TalkingHealth
+2. Restyled tables into card-like surfaces with refreshed colour palette and typography
+3. Updated modals and buttons to match the new design language
+
+### Why I Changed It
+1. The previous layout looked a bit unattractive and unprofessional
+2. Card style tables surface more context (emails, notes, availability) and feel more approachable
+3. Consistent buttons and overlays improve usability when adding or editing records
+
+### How I Changed It
+1. Updated index.html with a sticky header, hero copy, filter toolbar and applied brand-inspired copy
+2. Rebuilt styles.css around a design system (fonts, colours, spacing) and reworked the people table into a responsive grid with availability chips
+3. Enhanced people.js to render richer person info blocks, tweaked form.js/buildings.js to use flex overlays, and refreshed tests to match the visual updates
