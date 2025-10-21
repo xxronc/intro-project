@@ -43,3 +43,26 @@ export async function putdata( api, data ) {
   await fetch( url, request )
 }
 
+/**
+ * Send DELETE request to API (expects JSON body with { id })
+ * @param { string } api
+ * @param { object } data
+ * @returns { Promise }
+ */
+export async function deletedata( api, data ) {
+  const request = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify( data )
+  }
+
+  const url = rooturl + api
+  const response = await fetch( url, request )
+  if (response.ok) {
+    return await response.json()
+  } else {
+    console.error(`Delete request failed: ${response.status}`)
+  }
+}
