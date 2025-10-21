@@ -1,3 +1,18 @@
+# Running
+
+To run the application, enter the following into your terminal
+
+```
+node ./index.js
+```
+To run tests on the application, enter the following into your terminal
+
+```
+npm test
+```
+
+Then point a browser to `http://localhost:3000`
+
 # Changes
 ## Person Table Fixes
 ### What I Changed
