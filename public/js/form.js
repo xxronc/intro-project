@@ -20,7 +20,13 @@ document.addEventListener( "DOMContentLoaded", async function() {
       // @ts-ignore (it is part of HTML Element)
       element.parentNode.style.display = "none"
 
-      if( formsubmitcallback ) formsubmitcallback()
+      if ( formsubmitcallback ) {
+        const result = formsubmitcallback()
+        formsubmitcallback = undefined
+        if ( result && typeof result.then === "function" ) {
+          result.catch( ( err ) => console.error( "Form submission error", err ) )
+        }
+      }
     } )
   } )
 } )
@@ -78,6 +84,11 @@ export function clearform( formid ) {
 
   form.querySelectorAll( "input" ).forEach( ( input ) => input.value = "" )
   form.querySelectorAll( "textarea" ).forEach( ( input ) => input.value = "" )
+  form.querySelectorAll( "select" ).forEach( ( select ) => {
+    if ( select.options.length > 0 ) {
+      select.selectedIndex = 0
+    }
+  } )
 }
 
 /**
