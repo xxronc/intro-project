@@ -93,8 +93,6 @@ function editperson( ev ) {
                       getformfieldvalue( "personform-email" ),
                       getformfieldvalue( "personform-notes" ) )
     await gopeople()
-    
-    console.log("submitted peopleform")
   } )
   }
 
@@ -165,6 +163,9 @@ export function addpersondom( person ) {
     // to indicate scheduled days via background color)
     dayCell.innerHTML = ""
     dayCell.appendChild( label )
+
+    // make schedule cells smaller and centered
+    dayCell.classList.add( "schedule-cell" )
 
     dayCell.classList.toggle( "scheduled", !!person.schedule[ d ] )
     dayCell.dataset.dayIndex = String( d ) // helpful for debugging
