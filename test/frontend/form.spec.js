@@ -34,7 +34,7 @@ describe( "form helpers", () => {
   it( "showform hides content and shows target form", () => {
     formModule.showform( "personform", () => {} )
     expect( document.getElementById( "content" ).style.display ).to.equal( "none" )
-    expect( document.getElementById( "personform" ).style.display ).to.equal( "block" )
+    expect( document.getElementById( "personform" ).style.display ).to.equal( "flex" )
   } )
 
   it( "clearform blanks input, textarea and select", () => {

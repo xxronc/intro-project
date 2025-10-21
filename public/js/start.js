@@ -35,6 +35,16 @@ function configurepeopleheaders() {
       }
       rowdate.setDate( rowdate.getDate() + 1 )
     }
+
+    const nameHeader = days[ i ].querySelector( "th:first-child" )
+    if ( nameHeader ) {
+      nameHeader.textContent = "Name"
+    }
+
+    const actionHeader = days[ i ].querySelector( "th:last-child" )
+    if ( actionHeader ) {
+      actionHeader.textContent = "Actions"
+    }
   }
 }
 
